@@ -1,0 +1,58 @@
+# dom methods
+
+- toggle(): so this works as add and remove.so checks if the given para is there in toogle it will remove, if its not there it will add it there.
+
+# scope of variables
+
+var are undefined at their declaration
+
+so var is a variable that can be accessed anywhere and even before the declaration of the variable it will not give error.
+but its a fault in js that was solved by the addition of let and const.
+
+so let and const are in the temporal dead zone, so we cannot use the let and const things in js before they are declared.
+
+for ex:
+
+```console.log(add(5,3)) // will work
+console.log(add1(5,3)) // will not work as the function is const and we used it before it is declared.
+
+function add(a,b){
+    return a+b
+}
+const function add1(a,b){
+    return a+b
+}```
+
+# hoisting
+
+so basically js automatically moves the functions in the file at the top so we dont get errors of not initialsised
+and we are actually able to use functions before declaration,but this does not happen when we use const keyword
+
+so let and var keywords are not hoisted but simple functions are hoisted and moved at the top.
+
+*var are also hoisted*
+in case of var variables/functions we'll get different error saying its not a function.
+
+so var creates a undefined var if we use it before it declaration on top.
+
+for ex:
+```
+case1:
+
+var a = 2;
+console.log(a) // 2
+
+case 2:
+console.log(a) // undefined
+var a= 2;
+```
+
+so everytime we use it before declaring js will eventually make a declaration of that var with undefined so we'll see undefined there.
+so, 
+
+console.log(add(2,3)) // give error add function is not defined because undefined(2,3) is nothing, we wrote undefined because var are initialised with undefined if used before declaring. 
+var add(a,b){
+    return a+b
+}
+
+
