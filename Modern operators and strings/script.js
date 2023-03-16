@@ -270,5 +270,38 @@ console.log(orderSet); //Set(4) { 'pasta', 'pizza', 'risoto', 'apple' }
 
 console.log(new Set('aditya'));//Set(5) { 'a', 'd', 'i', 't', 'y' }
 
+// set to array
 
+const staff = ['Waiter','Chef','Waiter','Manager'];
+
+const uniqueStaff = [...new Set(staff)];
+console.log(uniqueStaff);//[ 'Waiter', 'Chef', 'Manager' ]
+
+
+// maps in js
+
+const rest = new Map();
+// we can use set to add the items in the map.
+rest.set('name','classic');
+rest.set('1','italy');
+rest.set('2','portugal');
+
+// we can chain the items
+rest.set('categories',['classic','italy','portugal'])
+    .set('open',11)
+    .set('close',5)
+    .set(true,'we are open');
+
+// to get item
+
+console.log(rest.get('name')); //classic
+console.log(rest.get('categories')); //[ 'classic', 'italy', 'portugal' ]
+
+rest.set([1,2],'hello');
+
+console.log(rest.get([1,2])); // undefined because arrays are not the same objects in the heap and new object is created so thats why its not pointing to the array of map and hence giving undefined.
+
+const array1 = [1,2];
+rest.set(array1,'hello');
+console.log(rest.get(array1));
 
