@@ -75,7 +75,6 @@ console.log(menu, starters);
 // Mutating values
 let x = 111;
 let y = 999;
-
 const obj = {x:23,y:7,z:14};
 
 // {a,b} = obj; // will give error if not wrapped around parenthesis
@@ -197,7 +196,6 @@ for (const [index,item] of menu1.entries()) {
 
 
 
-
 // arrays
 
 let items = ['a','b','c','d','e']
@@ -229,4 +227,48 @@ const letters1 = items.concat(items21)
 //console.log(items[items.length-1]); // e
 //console.log(items.slice(-1)[0]); // // it will return [e] without [0] so to get the arrays element we added [0] in front of it unless it gives the answer in array.
 //console.log(items.at(-1)); // e
+
+
+// optional chaining (?)
+// so we can use the ? symbol to check if the property is there or not,
+// this is helpful because if we try to get the property that is not present it will throw an error in console but with the ? symbol it will show undefined if the property is not present.
+console.log(restaurant.openingHours.mon);
+console.log(restaurant.openingHours?.mon);
+
+const days = ['mon','tue','wed','thu','fri','sat','sun'];
+// lets check on what days restraunt is open
+
+for(const day of days){
+  console.log(day);
+  const open = restaurant.openingHours?.[day]?.open; // so here we checked for restraunt openinghours on day in single line with ? operator.
+  console.log(open);
+}
+
+console.log(restaurant.order?.(0,1) ?? "methid not exist"); //[ 'Focaccia', 'Pasta' ]
+// so here we checked if order function exist if not then execute the other part of the ?? operator. 
+
+// we can also iterate on objects if they are not iterable
+
+const values = Object.values(restaurant.openingHours);
+const keys = Object.keys(restaurant.openingHours);
+console.log(keys);
+
+// sets in js
+// does not contain duplicate values
+
+const orderSet = new Set([
+  'pasta',
+  'pasta',
+  'pizza',
+  'risoto',
+  'risoto',
+  'apple'
+]);
+
+// in the parameter of set we have to pass the iterable. like arrays etc or even strings as strings are iterable
+console.log(orderSet); //Set(4) { 'pasta', 'pizza', 'risoto', 'apple' }
+
+console.log(new Set('aditya'));//Set(5) { 'a', 'd', 'i', 't', 'y' }
+
+
 
